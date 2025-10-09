@@ -1,0 +1,57 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: none !important;
+  overflow-x: hidden;
+}
+
+.home-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw; /* Ensures full width */
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-image: url('i.png'); /* Use '/c.jpg' if image is in public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+/* Optional overlay to make text readable */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* dark overlay, adjust opacity */
+  z-index: 0; /* behind the content */
+}
+
+/* Make sure content is above the overlay */
+.home-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Example button styling */
+.home-footer button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.home-footer button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}

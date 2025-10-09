@@ -1,0 +1,107 @@
+/* ==============================
+   Add Property - Matches Property List Style
+   ============================== */
+
+.add-property-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-property-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   Heading
+   ============================== */
+.add-property-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #007bff;
+  letter-spacing: 0.04em;
+}
+
+/* ==============================
+   Form Layout
+   ============================== */
+.add-property-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ==============================
+   Input, Select, Textarea
+   ============================== */
+.add-property-form input,
+.add-property-form select,
+.add-property-form textarea {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  background-color: #fff;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-property-form input:focus,
+.add-property-form select:focus,
+.add-property-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* ==============================
+   Checkbox Label
+   ============================== */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* ==============================
+   Submit Button
+   ============================== */
+.submit-btn {
+  padding: 12px 16px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 600px) {
+  .add-property-container {
+    padding: 25px;
+  }
+
+  .add-property-container h2 {
+    font-size: 24px;
+  }
+}

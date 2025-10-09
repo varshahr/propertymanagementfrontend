@@ -1,0 +1,119 @@
+/* Remove any global background from body/html */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: none !important;
+}
+
+/* Full-page login wrapper */
+.login-page {
+  position: relative; /* for ::before */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* ensures background stays behind content */
+}
+
+/* Background image only, faded */
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/hi.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* faded background */
+  z-index: -1; /* behind the login form */
+}
+
+/* App heading */
+.app-title {
+  color: white;
+  font-size: 50px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  text-align: center;
+}
+
+/* Login/Register card container */
+.login-container {
+  width: 350px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Title (Login or Register) */
+.login-container h2 {
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: rgba(255,255,255,0.8);
+  color: black;
+  box-sizing: border-box;
+}
+
+/* Button */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #4c72af; /* Primary blue */
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover */
+.login-container button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* Toggle text under forms */
+.toggle-text {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #222;
+  text-align: center;
+}
+
+/* Toggle clickable links */
+.toggle-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.toggle-link:hover {
+  color: #0056b3;
+}

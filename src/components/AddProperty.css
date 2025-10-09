@@ -1,0 +1,80 @@
+/* Full page background (optional, same as login for consistency) */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('/h.jpg'); /* same image in public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* AddProperty container */
+.add-property-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  margin: 50px auto; /* centers horizontally with some top margin */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px); /* frosted glass effect */
+  box-sizing: border-box;
+}
+
+/* Title */
+.add-property-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2563eb; /* blue title */
+  text-align: center;
+}
+
+/* Inputs */
+.add-property-container input,
+.add-property-container select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: rgba(255,255,255,0.9);
+  color: #333; /* text color */
+  box-sizing: border-box;
+}
+
+/* Checkbox label */
+.add-property-container label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Button */
+.add-property-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #2563eb; /* blue button */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover */
+.add-property-container button:hover {
+  background-color: #1e40af; /* darker blue on hover */
+  transform: scale(1.03);
+}
