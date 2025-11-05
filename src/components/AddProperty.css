@@ -7,74 +7,119 @@ body, html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ensures form starts below navbar */
+  padding-top: 120px; /* space between navbar and form */
+  box-sizing: border-box;
 }
 
 /* AddProperty container */
 .add-property-container {
   width: 100%;
-  max-width: 400px;
-  padding: 30px;
-  margin: 50px auto; /* centers horizontally with some top margin */
+  max-width: 450px;
+  padding: 35px;
+  margin: 0 auto 80px auto; /* centers horizontally */
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent */
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  background-color: rgba(255, 255, 255, 0.9); /* semi-transparent */
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px); /* frosted glass effect */
   box-sizing: border-box;
+  overflow: visible; /* ensures corners aren't clipped */
 }
 
 /* Title */
 .add-property-container h2 {
-  margin-bottom: 20px;
-  font-size: 28px;
+  margin-bottom: 25px;
+  font-size: 30px;
   font-weight: bold;
   color: #2563eb; /* blue title */
   text-align: center;
 }
 
-/* Inputs */
+/* Inputs and select dropdowns */
 .add-property-container input,
-.add-property-container select {
+.add-property-container select,
+.add-property-container textarea {
   width: 100%;
-  padding: 12px;
+  padding: 12px 14px;
   margin: 10px 0;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
-  background-color: rgba(255,255,255,0.9);
-  color: #333; /* text color */
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
   box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus effect */
+.add-property-container input:focus,
+.add-property-container select:focus,
+.add-property-container textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+}
+
+/* Textarea styling */
+.add-property-container textarea {
+  min-height: 80px;
+  resize: vertical;
 }
 
 /* Checkbox label */
-.add-property-container label {
+.checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 15px;
   color: #333;
   cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
 }
 
 /* Button */
 .add-property-container button {
   width: 100%;
   padding: 12px;
-  margin-top: 15px;
-  background-color: #2563eb; /* blue button */
+  margin-top: 20px;
+  background-color: #2563eb;
   color: white;
   font-size: 18px;
   font-weight: bold;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* Button hover */
 .add-property-container button:hover {
-  background-color: #1e40af; /* darker blue on hover */
+  background-color: #1e40af;
   transform: scale(1.03);
+}
+
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  body, html {
+    padding-top: 80px;
+  }
+
+  .add-property-container {
+    padding: 20px;
+    margin: 0 20px 60px 20px;
+  }
+
+  .add-property-container h2 {
+    font-size: 24px;
+  }
+
+  .add-property-container button {
+    font-size: 16px;
+  }
 }

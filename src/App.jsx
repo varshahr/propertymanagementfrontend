@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import AddProperty from "./components/AddProperty";
 import PropertyList from "./components/PropertyList";
+import PropertyDetails from "./components/PropertyDetails"; // ✅ added import
 import "./App.css";
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+
+        {/* ✅ Property list */}
         <Route
           path="/properties"
           element={
@@ -57,6 +60,20 @@ function App() {
             )
           }
         />
+
+        {/* ✅ Property details page */}
+        <Route
+          path="/properties/:id"
+          element={
+            loggedIn ? (
+              <PropertyDetails />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        {/* ✅ Add property */}
         <Route
           path="/add"
           element={
@@ -67,6 +84,7 @@ function App() {
             )
           }
         />
+
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </Router>
