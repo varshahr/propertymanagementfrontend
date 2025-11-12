@@ -10,7 +10,8 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import AddProperty from "./components/AddProperty";
 import PropertyList from "./components/PropertyList";
-import PropertyDetails from "./components/PropertyDetails"; // ✅ added import
+import PropertyDetails from "./components/PropertyDetails";
+import ChatPage from "./components/ChatPage"; // ✅ New ChatPage import
 import "./App.css";
 
 function App() {
@@ -45,11 +46,16 @@ function App() {
       </header>
 
       <Routes>
+        {/* Default route */}
         <Route path="/" element={<Navigate to="/home" />} />
+
+        {/* Home */}
         <Route path="/home" element={<Home />} />
+
+        {/* Login */}
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
 
-        {/* ✅ Property list */}
+        {/* Property List */}
         <Route
           path="/properties"
           element={
@@ -61,7 +67,7 @@ function App() {
           }
         />
 
-        {/* ✅ Property details page */}
+        {/* Property Details */}
         <Route
           path="/properties/:id"
           element={
@@ -73,7 +79,7 @@ function App() {
           }
         />
 
-        {/* ✅ Add property */}
+        {/* Add Property */}
         <Route
           path="/add"
           element={
@@ -85,6 +91,19 @@ function App() {
           }
         />
 
+        {/* ✅ Chat Page Route */}
+        <Route
+          path="/chat/:ownerName"
+          element={
+            loggedIn ? (
+              <ChatPage />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </Router>

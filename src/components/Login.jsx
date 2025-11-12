@@ -15,13 +15,15 @@ function Login({ setLoggedIn }) {
         username,
         password,
       });
+
       if (res.data === "Login Successful") {
+        alert("🎉 Login Successful! Welcome back.");
         setLoggedIn(true);
       } else {
         alert("Invalid username or password");
       }
     } catch (err) {
-      alert("Login failed");
+      alert("Login failed. Please try again.");
     }
   };
 
@@ -41,8 +43,9 @@ function Login({ setLoggedIn }) {
         email,
         password,
       });
+
       if (res.data === "Registration Successful") {
-        alert("Registration successful! Please login.");
+        alert("✅ Registration successful! Please login now.");
         setIsRegistering(false);
         setUsername("");
         setEmail("");
@@ -52,7 +55,7 @@ function Login({ setLoggedIn }) {
         alert("Registration failed: " + res.data);
       }
     } catch (err) {
-      alert("Registration failed");
+      alert("Registration failed. Try again later.");
     }
   };
 

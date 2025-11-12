@@ -15,8 +15,13 @@ function AddProperty() {
     bathrooms: 0,
     area: 0,
     available: true,
-    imageUrl: "",        // 🆕 added for image
-    description: ""      // 🆕 added for details
+    imageUrl: "",
+    description: "",
+
+    // 🆕 Contact details
+    contactNumber: "",
+    contactEmail: "",
+    contactAddress: ""
   });
 
   const handleChange = (e) => {
@@ -41,9 +46,10 @@ function AddProperty() {
     <div className="add-property-container">
       <h2>Add New Property</h2>
       <form onSubmit={handleSubmit} className="add-property-form">
+        {/* --- Basic Info --- */}
         <input
           name="name"
-          placeholder="Name"
+          placeholder="Property Name"
           value={property.name}
           onChange={handleChange}
           required
@@ -58,7 +64,7 @@ function AddProperty() {
         <input
           name="rent"
           type="number"
-          placeholder="Rent"
+          placeholder="Rent Amount"
           value={property.rent}
           onChange={handleChange}
           required
@@ -71,12 +77,14 @@ function AddProperty() {
           required
         />
 
+        {/* --- Type Dropdown --- */}
         <select name="type" value={property.type} onChange={handleChange}>
           <option value="HOUSE">House</option>
           <option value="SHOP">Shop</option>
           <option value="LAND">Land</option>
         </select>
 
+        {/* --- Conditional inputs for HOUSE --- */}
         {property.type === "HOUSE" && (
           <>
             <input
@@ -99,12 +107,12 @@ function AddProperty() {
         <input
           name="area"
           type="number"
-          placeholder="Area (m²)"
+          placeholder="Area (in m²)"
           value={property.area}
           onChange={handleChange}
         />
 
-        {/* 🆕 Image URL input */}
+        {/* --- Image URL --- */}
         <input
           name="imageUrl"
           type="text"
@@ -113,7 +121,7 @@ function AddProperty() {
           onChange={handleChange}
         />
 
-        {/* 🆕 Description input */}
+        {/* --- Description --- */}
         <textarea
           name="description"
           placeholder="Description about the property"
@@ -121,6 +129,33 @@ function AddProperty() {
           onChange={handleChange}
         ></textarea>
 
+        {/* --- 🆕 Contact Info Section --- */}
+        <h3 className="section-title">Contact Details</h3>
+        <input
+          name="contactNumber"
+          type="tel"
+          placeholder="Contact Number"
+          value={property.contactNumber}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="contactEmail"
+          type="email"
+          placeholder="Contact Email"
+          value={property.contactEmail}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="contactAddress"
+          placeholder="Full Contact Address"
+          value={property.contactAddress}
+          onChange={handleChange}
+          rows="3"
+        ></textarea>
+
+        {/* --- Availability --- */}
         <label className="checkbox-label">
           Available:
           <input
@@ -131,6 +166,7 @@ function AddProperty() {
           />
         </label>
 
+        {/* --- Submit --- */}
         <button type="submit" className="submit-btn">
           Add Property
         </button>

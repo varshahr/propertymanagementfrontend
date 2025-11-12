@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "./PropertyDetail.css";
 
 function PropertyDetails() {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchProperty();
@@ -17,6 +18,12 @@ function PropertyDetails() {
       setProperty(res.data);
     } catch (error) {
       console.error("Error fetching property details:", error);
+    }
+  };
+
+  const handleChatClick = () => {
+    if (property && property.ownerName) {
+      navigate(`/chat/${property.ownerName}`, { state: { property } });
     }
   };
 
@@ -45,7 +52,6 @@ function PropertyDetails() {
           <p><strong>👤 Owner:</strong> {property.ownerName}</p>
           <p><strong>🏠 Type:</strong> {property.type}</p>
 
-          {/* ✅ Optional fields */}
           {property.type === "HOUSE" && (
             <>
               <p><strong>🛏 Bedrooms:</strong> {property.bedrooms}</p>
@@ -62,14 +68,33 @@ function PropertyDetails() {
             {property.available ? "Available" : "Not Available"}
           </p>
 
+          {/* ✅ Description */}
           {property.description && (
             <p className="property-description">
               <strong>📝 Description:</strong> {property.description}
             </p>
           )}
+
+          {/* ✅ Contact Section */}
+          {(property.contactNumber || property.contactEmail) && (
+            <div className="contact-section">
+              <h3 className="contact-heading">📞 Contact Details</h3>
+              {property.contactNumber && (
+                <p><strong>Phone:</strong> {property.contactNumber}</p>
+              )}
+              {property.contactEmail && (
+                <p><strong>Email:</strong> {property.contactEmail}</p>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* ✅ Back button */}
+        {/* ✅ Chat Button */}
+        <button className="chat-btn" onClick={handleChatClick}>
+          💬 Chat with Owner
+        </button>
+
+        {/* ✅ Back Button */}
         <Link to="/properties" className="back-link">
           ⬅ Back to Property List
         </Link>

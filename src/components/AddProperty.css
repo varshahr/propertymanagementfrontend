@@ -33,10 +33,11 @@ body, html {
 
 /* Title */
 .add-property-container h2 {
+  padding-top: 80px;
   margin-bottom: 25px;
   font-size: 30px;
   font-weight: bold;
-  color: #2563eb; /* blue title */
+  color: #ff9e03; /* blue title */
   text-align: center;
 }
 
@@ -122,4 +123,16 @@ body, html {
   .add-property-container button {
     font-size: 16px;
   }
+}
+/* Section titles like "Contact Details" */
+.section-title {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2563eb; /* same blue as main title */
+  border-bottom: 2px solid #2563eb; /* optional underline */
+  padding-bottom: 4px;
+  text-align: left;
 }

@@ -84,7 +84,7 @@ body, html {
   width: 100%;
   padding: 12px;
   margin-top: 20px;
-  background-color: #4c72af; /* Primary blue */
+  background-color: #ffb703; /* Primary blue */
   color: white;
   font-size: 18px;
   border: none;
@@ -95,7 +95,7 @@ body, html {
 
 /* Button hover */
 .login-container button:hover {
-  background-color: #0056b3;
+  background-color: #e6a809;
   transform: scale(1.03);
 }
 

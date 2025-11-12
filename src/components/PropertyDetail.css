@@ -68,3 +68,17 @@
 .back-link:hover {
   background: #0056b3;
 }
+.contact-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(37, 99, 235, 0.08); /* soft blue tint */
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+}
+
+.contact-heading {
+  color: #2563eb;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
